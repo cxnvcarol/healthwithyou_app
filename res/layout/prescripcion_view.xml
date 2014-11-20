@@ -1,0 +1,125 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="app.yourpersonalnurse.DataFragment" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txtTituloPrescripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:text="Título"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtDescripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:text="descripción lorem ipsu drale dlsf dolto imu alfa vet und gamma" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tomada por última vez el día " />
+
+            <TextView
+                android:id="@+id/txtUltimoDiaTomada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25/08/2014" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Debes tomarla de nuevo el día " />
+
+            <TextView
+                android:id="@+id/txtSiguienteToma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25/08/2014" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnTomar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Acabo de tomarla" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="La tomé a las " />
+
+            <!--
+                 <TimePicker
+                android:id="@+id/pickerHora"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content" />
+            -->
+
+            <EditText
+                android:id="@+id/pickerHora"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="del día" />
+
+            <!--
+                <DatePicker
+                android:id="@+id/pickerDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            -->
+
+            <EditText
+                android:id="@+id/pickerDate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnTomarPasada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Actualizar toma" />
+    </LinearLayout>
+
+</ScrollView>

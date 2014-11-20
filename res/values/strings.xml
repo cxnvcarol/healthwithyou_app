@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Your Personal Nurse</string>
+    <string name="title_prescripcion">Prescripciones</string>
+    <string name="title_data">Seguimiento</string>
+    <string name="title_seguimiento">Reportes y recomendaciones</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Configuraciones</string>
+    <string name="label_about">Acerca de Personal Nurse</string>
+    <string name="label_comida">Alimentación</string>
+    <string name="label_prescripcion">Detale de prescripción</string>
+
+</resources>
