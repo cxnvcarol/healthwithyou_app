@@ -1,4 +1,4 @@
-package app.yourpersonalnurse;
+package app.healthwithyou;
 
 import android.app.Activity;
 import android.content.Intent;

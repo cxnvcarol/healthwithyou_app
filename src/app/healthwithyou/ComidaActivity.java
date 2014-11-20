@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-package app.yourpersonalnurse;
+package app.healthwithyou;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
+import app.yourpersonalnurse.R;
 
 /**
  * This Activity appears as a dialog. It lists any paired devices and
@@ -26,7 +27,7 @@ import android.view.Window;
  * by the user, the MAC address of the device is sent back to the parent
  * Activity in the result Intent.
  */
-public class AboutActivity extends Activity {
+public class ComidaActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class AboutActivity extends Activity {
 
         // Setup the window
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-        setContentView(R.layout.about_view);
+        setContentView(R.layout.comida_view);
 
         // Set result CANCELED in case the user backs out
         setResult(Activity.RESULT_CANCELED);

@@ -1,4 +1,4 @@
-package app.yourpersonalnurse;
+package app.healthwithyou;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,6 +20,7 @@ import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.Toast;
 import app.models.Comida;
 import app.models.Medicamento;
+import app.yourpersonalnurse.R;
 
 /**
 	 * A placeholder fragment containing a simple view.
@@ -187,10 +188,10 @@ import app.models.Medicamento;
 	    }
 	    private void fillDefaultData(List<Medicamento> medicamentos)
 	    {
-	    	fillDefaultData(medicamentos);
+
 	        // Adding child data
-	        
-	        medicamentos.add(new Medicamento("Metformina", "Tomar 1 antes de cada comida", new Date(), "",false));
+	        Medicamento medic1=new Medicamento("Metformina", "Tomar 1 antes de cada comida", new Date(), "",false);
+	        medicamentos.add(medic1);
 	        Medicamento medic2=new Medicamento("Glipizide", "Tomar 1 diaria", new Date(), "FREQ=DAILY;COUNT=10",true);
 	        
 	        ContentResolver cr = getActivity().getContentResolver();
@@ -210,6 +211,8 @@ import app.models.Medicamento;
 	        }
 	        
 	        medicamentos.add(medic2);
+	        ((NurseActivity)getActivity()).dbInsertRegistroMedicina(medic1.getNombre(), medic1.getDescripcion(),medic1.getFirstDate());
+	        ((NurseActivity)getActivity()).dbInsertRegistroMedicina(medic2.getNombre(), medic2.getDescripcion(),medic2.getFirstDate());
 	    }
 	    @SuppressLint("NewApi")
 		private void prepareListData() {
@@ -230,6 +233,7 @@ import app.models.Medicamento;
 	        }
 	        catch(Exception e)
 	        {
+		    	fillDefaultData(medicamentos);
 	        	
 	        	System.err.println("Error con la base de datos");
 	        	System.err.println(e.getMessage());

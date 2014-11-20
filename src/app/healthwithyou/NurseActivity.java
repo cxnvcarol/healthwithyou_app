@@ -1,4 +1,4 @@
-package app.yourpersonalnurse;
+package app.healthwithyou;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -31,6 +31,7 @@ import android.view.View;
 import android.widget.Toast;
 import app.models.Medicamento;
 import app.models.RegistroMedida;
+import app.yourpersonalnurse.R;
 
 public class NurseActivity extends ActionBarActivity  implements
 ActionBar.TabListener{
@@ -121,7 +122,7 @@ ActionBar.TabListener{
 	private void dbInit() {
 		mydatabase = openOrCreateDatabase(DATABASE_NAME,MODE_PRIVATE,null);
 		mydatabase.execSQL("CREATE TABLE IF NOT EXISTS medidas(nombre VARCHAR,valor NUMBER);");
-		mydatabase.execSQL("CREATE TABLE IF NOT EXISTS medicinas(nombre VARCHAR,descripcion VARCHAR);");
+		mydatabase.execSQL("CREATE TABLE IF NOT EXISTS medicinas(nombre VARCHAR,descripcion VARCHAR, firstdate DATE);");
 		System.out.println("db creada exitosamente");
 	}
 	public boolean dbInsertRegistroMedida(String nombreMedida, double valor)
@@ -141,12 +142,13 @@ ActionBar.TabListener{
 	private void dbDropTableMedicinas() {
 		mydatabase.delete("medicinas", "", null);
 	}
-	public boolean dbInsertRegistroMedicina(String nombreMedida, String valor)
+	public boolean dbInsertRegistroMedicina(String nombreMedida, String valor, Date fecha)
 	{
 		try {
 			ContentValues values=new ContentValues();
 			values.put("nombre", nombreMedida);
 			values.put("descripcion", valor);
+			values.put("firstdate", fecha.toString());
 			mydatabase.insert("medicinas", null, values);
 			return true;
 			
@@ -328,7 +330,7 @@ ActionBar.TabListener{
 	    while ((line = reader.readLine()) != null) {
 	        System.out.println("rr:"+line);
 	        String[] meds=line.split(",");
-	        dbInsertRegistroMedicina(meds[0], meds[1]);
+	        dbInsertRegistroMedicina(meds[0], meds[1],new Date());
 	    }
 	    inputStream.close();
 	    }

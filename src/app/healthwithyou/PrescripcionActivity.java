@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package app.yourpersonalnurse;
+package app.healthwithyou;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,6 +28,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import app.yourpersonalnurse.R;
 
 /**
  * This Activity appears as a dialog. It lists any paired devices and

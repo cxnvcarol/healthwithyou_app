@@ -25,7 +25,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".NurseActivity"
+            android:name="app.healthwithyou.NurseActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,19 +34,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AboutActivity"
+            android:name="app.healthwithyou.AboutActivity"
             android:label="@string/label_about" >
         </activity>
         <activity
-            android:name=".ComidaActivity"
+            android:name="app.healthwithyou.ComidaActivity"
             android:label="@string/label_comida" >
         </activity>
         <activity
-            android:name=".PrescripcionActivity"
+            android:name="app.healthwithyou.PrescripcionActivity"
             android:label="@string/label_prescripcion" >
         </activity>
         <activity
-            android:name=".FileOpenerActivity"
+            android:name="app.healthwithyou.FileOpenerActivity"
             android:label="Actualizar prescripciones (.csv)" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

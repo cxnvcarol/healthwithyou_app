@@ -34,6 +34,10 @@ public class Medicamento {
 				
 			}
 	}
+	public Date getFirstDate()
+	{
+		return firstDay;
+	}
 	public ContentValues getValuesAlarm() {
 		return valuesAlarm;
 	}

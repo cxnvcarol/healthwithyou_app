@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Your Personal Nurse</string>
+    <string name="app_name">Health with You</string>
     <string name="title_prescripcion">Prescripciones</string>
     <string name="title_data">Seguimiento</string>
     <string name="title_seguimiento">Reportes y recomendaciones</string>

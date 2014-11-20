@@ -1,4 +1,4 @@
-package app.yourpersonalnurse;
+package app.healthwithyou;
 
 
 import java.io.BufferedReader;
@@ -26,6 +26,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v4.app.Fragment;
+import app.yourpersonalnurse.R;
 /**
 	 * A placeholder fragment containing a simple view.
 	 */
@@ -56,7 +57,14 @@ import android.support.v4.app.Fragment;
 			((NurseActivity)getActivity()).dbInsertRegistroMedida(key, valor);
 			msgToast(key+" actualizado");
 			}
+		
 		public void actualizarDato(String key, String valorStr) {
+			if(key.equalsIgnoreCase("comentarios"))
+			{
+				sendToServer(key,valorStr);
+				msgToast(key+" enviados");
+				return;
+			}
 			try{
 				
 			
@@ -157,7 +165,8 @@ import android.support.v4.app.Fragment;
 			case R.id.btnActualizarTension:						
 				actualizarDato("tension", txtTension.getText().toString());
 				break;
-			case R.id.btnActualizarComentarios:						
+			case R.id.btnActualizarComentarios:				
+				actualizarDato("comentarios", txtComentarios.getText().toString());
 				break;
 
 			default:

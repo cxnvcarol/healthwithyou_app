@@ -1,4 +1,4 @@
-package app.yourpersonalnurse;
+package app.healthwithyou;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import app.models.GraphViewData;
+import app.yourpersonalnurse.R;
 
 /**
 	 * A placeholder fragment containing a simple view.
