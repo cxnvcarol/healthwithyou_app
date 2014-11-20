@@ -78,7 +78,7 @@ import android.support.v4.app.Fragment;
 		private void sendToServer(String key, String valorStr) {
 			try {
 			HttpClient httpclient = new DefaultHttpClient();
-		    HttpPost httppost = new HttpPost("http://healthserver.jit.su/measure/544e32f35908eba03c7627d0");
+		    HttpPost httppost = new HttpPost("http://healthserver-quot.rhcloud.com/measure/544e32f35908eba03c7627d0");
 		    
 		    List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 		    nameValuePairs.add(new BasicNameValuePair("name", key));

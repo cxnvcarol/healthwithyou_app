@@ -185,6 +185,32 @@ import app.models.Medicamento;
 	        listDataChild.put(listDataHeader.get(0), medicamentos); // Header, Child data
 	        listDataChild.put(listDataHeader.get(1), comida);
 	    }
+	    private void fillDefaultData(List<Medicamento> medicamentos)
+	    {
+	    	fillDefaultData(medicamentos);
+	        // Adding child data
+	        
+	        medicamentos.add(new Medicamento("Metformina", "Tomar 1 antes de cada comida", new Date(), "",false));
+	        Medicamento medic2=new Medicamento("Glipizide", "Tomar 1 diaria", new Date(), "FREQ=DAILY;COUNT=10",true);
+	        
+	        ContentResolver cr = getActivity().getContentResolver();
+	        try{
+	        	System.out.println("uri events: "+Events.CONTENT_URI);
+	        	Uri uri = cr.insert(Events.CONTENT_URI, medic2.getValuesAlarm());
+	        	long eventID = Long.parseLong(uri.getLastPathSegment());
+	        	System.out.println("uri: "+uri);
+	        	System.out.println("eventid: "+eventID);
+	        	msgToast("Las alarmas de tus prescripciones se han sincronizado exitosamente");
+	        }
+	        catch(Exception ex)
+	        {
+	        	System.err.println("Min api not satisfied: "+ex.getMessage());
+	        	msgToast("Lo sentimos, no fue posible sincronizar las alarmas en tu calendario.");
+	        	
+	        }
+	        
+	        medicamentos.add(medic2);
+	    }
 	    @SuppressLint("NewApi")
 		private void prepareListData() {
 	        listDataHeader = new ArrayList<String>();
@@ -197,6 +223,9 @@ import app.models.Medicamento;
 	 
 	        try{
 	        	medicamentos=((NurseActivity)getActivity()).dbGetPrescripcionesMedicinas();
+	        	if(medicamentos.size()==0){
+	        		fillDefaultData(medicamentos);
+	        	}
 	        	
 	        }
 	        catch(Exception e)
@@ -204,30 +233,7 @@ import app.models.Medicamento;
 	        	
 	        	System.err.println("Error con la base de datos");
 	        	System.err.println(e.getMessage());
-		        // Adding child data
-		        
-		        medicamentos.add(new Medicamento("Metformina", "Tomar 1 antes de cada comida", new Date(), "",false));
-		        Medicamento medic2=new Medicamento("Glipizide", "Tomar 1 diaria", new Date(), "FREQ=DAILY;COUNT=10",true);
-		        
-		        ContentResolver cr = getActivity().getContentResolver();
-	/*
-		        try{
-		        	System.out.println("uri events: "+Events.CONTENT_URI);
-		        	Uri uri = cr.insert(Events.CONTENT_URI, medic2.getValuesAlarm());
-		        	long eventID = Long.parseLong(uri.getLastPathSegment());
-		        	System.out.println("uri: "+uri);
-		        	System.out.println("eventid: "+eventID);
-		        	msgToast("Las alarmas de tus prescripciones se han sincronizado exitosamente");
-		        }
-		        catch(Exception e)
-		        {
-		        	System.err.println("Min api not satisfied: "+e.getMessage());
-		        	msgToast("Lo sentimos, no fue posible sincronizar las alarmas en tu calendario.");
-		        	
-		        }
-		        */
-		        medicamentos.add(medic2);
-	        	System.err.println("Something bad happened!");
+	        	
 	        }
 	        
 	        
