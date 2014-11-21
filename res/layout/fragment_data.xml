@@ -175,7 +175,6 @@
                     android:paddingRight="10dp" >
 
                     <requestFocus android:layout_width="wrap_content" />
-
                 </EditText>
             </LinearLayout>
 
@@ -193,9 +192,15 @@
             android:id="@+id/btnConectarBluetooth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Leer dispositivo externo"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:text="Leer dispositivo externo" />
 
+        <Button
+            android:id="@+id/btnForceFitness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Forzar google fitness" />
     </LinearLayout>
 
 </ScrollView>

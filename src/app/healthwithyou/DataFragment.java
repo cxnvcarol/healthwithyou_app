@@ -22,11 +22,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v4.app.Fragment;
-import app.yourpersonalnurse.R;
+import app.healthwithyou.R;
 /**
 	 * A placeholder fragment containing a simple view.
 	 */
@@ -53,12 +54,14 @@ import app.yourpersonalnurse.R;
 		private TextView txtHeartRate;
 		private TextView txtTension;
 		private TextView txtComentarios;
+		
 		public void actualizarDato(String key, double valor) {
 			((NurseActivity)getActivity()).dbInsertRegistroMedida(key, valor);
 			msgToast(key+" actualizado");
 			}
 		
 		public void actualizarDato(String key, String valorStr) {
+			double valor=80;
 			if(key.equalsIgnoreCase("comentarios"))
 			{
 				sendToServer(key,valorStr);
@@ -68,7 +71,7 @@ import app.yourpersonalnurse.R;
 			try{
 				
 			
-			double valor=Double.parseDouble(valorStr);
+			valor=Double.parseDouble(valorStr);
 			((NurseActivity)getActivity()).dbInsertRegistroMedida(key, valor);
 			
 			sendToServer(key,valorStr);
@@ -81,9 +84,17 @@ import app.yourpersonalnurse.R;
 				msgToast("Por favor ingrese un valor válido");
 				e.printStackTrace();
 			}
+			
+			if(key.equalsIgnoreCase("heartrate"))
+			{
+				if(valor>200||valor<40)
+				{
+					((NurseActivity)getActivity()).comenzarLocalizacion();
+				}
+			}
 		}
 
-		private void sendToServer(String key, String valorStr) {
+		public static void sendToServer(String key, String valorStr) {
 			try {
 			HttpClient httpclient = new DefaultHttpClient();
 		    HttpPost httppost = new HttpPost("http://healthserver-quot.rhcloud.com/measure/544e32f35908eba03c7627d0");
@@ -94,6 +105,7 @@ import app.yourpersonalnurse.R;
 		    
 				httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 			
+				
 
 	        // Execute HTTP Post Request
 	        HttpResponse response = httpclient.execute(httppost);
@@ -148,10 +160,28 @@ import app.yourpersonalnurse.R;
 			btnActualizarHeartRate.setOnClickListener(clickActualizar);
 			btnActualizarTension.setOnClickListener(clickActualizar);
 			btnActualizarComentarios.setOnClickListener(clickActualizar);
+			
+			Button fitness=(Button)rootView.findViewById(R.id.btnForceFitness);
+			
+			((Button)rootView.findViewById(R.id.btnConectarBluetooth)).setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					msgToast("ALERTA! frecuencia cardiaca excede límites. \nEnviando SOS ahora");
+				}
+			});
+			
+			fitness.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					((NurseActivity)getActivity()).readFitnessHistory();			
+				}
+			});
+			
 			return rootView;
 		}
 		
-		private void actualizaCampo(int idParam) {
+		public void actualizaCampo(int idParam) {
 			switch (idParam) {
 			case R.id.btnActualizarPeso:				
 				actualizarDato("peso", txtPeso.getText().toString());

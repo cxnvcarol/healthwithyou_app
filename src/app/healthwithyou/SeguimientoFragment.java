@@ -19,7 +19,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import app.models.GraphViewData;
-import app.yourpersonalnurse.R;
+import app.healthwithyou.R;
 
 /**
 	 * A placeholder fragment containing a simple view.

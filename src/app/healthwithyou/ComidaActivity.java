@@ -19,7 +19,7 @@ package app.healthwithyou;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
-import app.yourpersonalnurse.R;
+import app.healthwithyou.R;
 
 /**
  * This Activity appears as a dialog. It lists any paired devices and

@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.TextView;
-import app.yourpersonalnurse.R;
+import app.healthwithyou.R;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 

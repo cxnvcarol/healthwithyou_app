@@ -28,7 +28,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import app.yourpersonalnurse.R;
+import app.healthwithyou.R;
 
 /**
  * This Activity appears as a dialog. It lists any paired devices and

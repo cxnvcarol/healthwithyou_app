@@ -20,7 +20,7 @@ import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.Toast;
 import app.models.Comida;
 import app.models.Medicamento;
-import app.yourpersonalnurse.R;
+import app.healthwithyou.R;
 
 /**
 	 * A placeholder fragment containing a simple view.
